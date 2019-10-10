@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  setup-env:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: greeting
+      run: echo "Hello, World!"
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: yarn
+      run: npm install -g yarn
+    - name: dependencies
+      run: yarn
